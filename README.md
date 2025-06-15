@@ -10,7 +10,7 @@ Mục tiêu chính là giảm thiểu thời gian và công sức cho các nhà 
 
 Kiến trúc của dự án dựa trên mô hình RAG, một kỹ thuật tiên tiến trong lĩnh vực xử lý ngôn ngữ tự nhiên, kết hợp hai thành phần chính:
 
-1.  **Retrieval (Truy xuất)**: Hệ thống bắt đầu bằng việc thu thậpและlưu trữ kiến thức từ một codebase cụ thể (ví dụ: toàn bộ mã nguồn của thư viện `pandas-ta`). Dữ liệu này được chia nhỏ, chuyển đổi thành các vector embedding và được lưu trữ trong một cơ sở dữ liệu vector chuyên dụng (`pgvector`). Khi nhận được yêu cầu từ người dùng, hệ thống sẽ truy xuất các đoạn mã hoặc tài liệu liên quan nhất từ cơ sở dữ liệu này.
+1.  **Retrieval (Truy xuất)**: Hệ thống bắt đầu bằng việc thu thập và lưu trữ kiến thức từ một codebase cụ thể (ví dụ: toàn bộ mã nguồn của thư viện `pandas-ta`). Dữ liệu này được chia nhỏ, chuyển đổi thành các vector embedding và được lưu trữ trong một cơ sở dữ liệu vector chuyên dụng (`pgvector`). Khi nhận được yêu cầu từ người dùng, hệ thống sẽ truy xuất các đoạn mã hoặc tài liệu liên quan nhất từ cơ sở dữ liệu này.
 
 2.  **Generation (Sinh)**: Các thông tin được truy xuất sẽ được sử dụng làm "ngữ cảnh" bổ sung và cung cấp cho LLM cùng với prompt ban đầu của người dùng. Dựa trên ngữ cảnh này, LLM sẽ sinh ra mã Python chính xác và phù hợp với yêu cầu.
 
@@ -39,8 +39,7 @@ Giai đoạn này chuẩn bị cơ sở kiến thức cho hệ thống RAG.
 4.  **Streaming**: Kết quả được trả về cho người dùng dưới dạng một luồng (stream) để cải thiện trải nghiệm.
 
 ## 📂 Cấu trúc thư mục
-
-
+```plaintext
 ├── data/ # Lưu trữ dữ liệu nguồn và các file đã qua xử lý
 ├── docs/ # Tài liệu dự án
 ├── examples/ # Các kịch bản ví dụ
@@ -50,11 +49,12 @@ Giai đoạn này chuẩn bị cơ sở kiến thức cho hệ thống RAG.
 │ ├── core/ # Quản lý cấu hình và kết nối cơ sở dữ liệu
 │ ├── preprocessing/ # Các script tiền xử lý dữ liệu
 │ └── embeddings.py # Script tạo và lưu trữ embeddings
-├── tests/ # Các bài kiểm tra cho thư viện pandas-ta
 ├── main.py # Điểm vào chính của ứng dụng
 ├── preprocess.py # Script chạy toàn bộ pipeline tiền xử lý
 ├── pyproject.toml # Định nghĩa các dependencies của dự án
 └── README.md # Tài liệu hướng dẫn
+```
+
 ## 🛠️ Cài đặt và Sử dụng
 
 ### Yêu cầu
@@ -66,8 +66,8 @@ Giai đoạn này chuẩn bị cơ sở kiến thức cho hệ thống RAG.
 
 1.  **Clone a Repositório:**
    ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-   cd your-repo-name
+   git clone https://github.com/Cye-atom/RAG_for_GithubRepo.git
+   cd RAG_for_GithubRepo
    ```
 
 2.  **Cài đặt các Dependencies:**
